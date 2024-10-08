@@ -80,7 +80,7 @@ X = [ x_24 x_pantone ];  % trained data
 
 %% 3. Genetic algorithm with interpolation
 %%9通道优化算法
-nvars=90;%带求参数个数
+nvars=m*10;%带求参数个数
 lb=0;
 ub=1;
 PopulationSize_Data=200;
@@ -90,7 +90,7 @@ MaxGenerations_Data=300;
 xx = 400:60:940;
 xq = 400:0.5:1000;
 
-for i=1:9
+for i=1:m
  
     B(i,:) = x((i-1)*10+1:i*10);
     A(i,:) = interp1(xx,B(i,:),xq,'spline');
@@ -100,14 +100,14 @@ end
 
 %
 %%16通道优化算法
-% nvars=160;%带求参数个数
+% nvars=m*10;%带求参数个数
 % lb=0;
 % ub=1;
 % PopulationSize_Data=200;
 % MaxGenerations_Data=300;
 % [x,fval,exitflag,output,population,score] = ga_op(nvars,lb,ub,PopulationSize_Data,MaxGenerations_Data);
 
-% for i=1:16
+% for i=1:m
 % 
 %     B(i,:) = x((i-1)*10+1:i*10);
 %     A(i,:) = interp1(xx,B(i,:),xq,'spline');
